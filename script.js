@@ -33,7 +33,7 @@ function operate(firstNum, secondNum, currentOperator) {
     }
 };
 
-// Display Functionality
+// Display
 const display = document.querySelector("#display");
 
 // Set Number
@@ -49,9 +49,6 @@ function setNum(num) {
     }
     
 }
-
-// Set Operator
-
 
 // Number Button Functionality
 const number = document.querySelectorAll("#num");
@@ -78,4 +75,13 @@ equals.addEventListener("click", () => {
     } else {
         operate(Number(firstNum), Number(secondNum), currentOperator);
     }
+})
+
+// Clear Button Functionality
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+    firstNum = "";
+    secondNum = "";
+    currentOperator = "";
+    display.textContent = "0";
 })
