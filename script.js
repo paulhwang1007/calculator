@@ -1,9 +1,9 @@
-// Calculator Operation
+// Calculator Operation Variables
 let firstNum = 0;
 let secondNum = 0;
 let operator = "";
 
-// Functionality
+// Operator Functionality
 function add(firstNum, secondNum) {
     return firstNum + secondNum;
 }
