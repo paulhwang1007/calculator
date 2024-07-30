@@ -1,6 +1,6 @@
 // Calculator Operation Variables
-let firstNum = 0;
-let secondNum = 0;
+let firstNum = "";
+let secondNum = "";
 let operator = "";
 
 // Operator Functionality
@@ -21,14 +21,26 @@ function divide(firstNum, secondNum) {
 }
 
 // Operate()
-function operate(firstNum, operator, secondNum) {
-    if (operator === "+") {
-        add(firstNum, secondNum);
-    } else if (operator === "-") {
-        subtract(firstNum, secondNum);
-    } else if (operator === "*") {
-        multiply(firstNum, secondNum);
-    } else if (operator === "/") {
-        divide(firstNum, secondNum);
+function operate(firstNum, secondNum, operator) {
+    switch (operator) {
+        case "+":
+            add(firstNum, secondNum);
+        case "-":
+            subtract(firstNum, secondNum);
+        case "*":
+            multiply(firstNum, secondNum);
+        case "/":
+            divide(firstNum, secondNum);
     }
 };
+
+// Display Functionality
+const display = document.querySelector("#display");
+
+// Number Button Functionality
+const number = document.querySelectorAll("#num");
+number.forEach((num) => {
+    num.addEventListener("click", () => {
+        console.log(num.textContent);
+    })
+})
