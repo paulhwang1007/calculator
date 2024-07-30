@@ -17,7 +17,15 @@ function multiply(firstNum, secondNum) {
 }
 
 function divide(firstNum, secondNum) {
-    display.textContent = firstNum / secondNum;
+    let result = firstNum / secondNum;
+
+    if (secondNum === 0) {
+        display.textContent = "Error"
+    } else if (!Number.isInteger(result)) {
+        display.textContent = result.toFixed(10);
+    } else {
+        display.textContent = result;
+    }
 }
 
 // Operate()
