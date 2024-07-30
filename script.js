@@ -58,12 +58,41 @@ function setNum(num) {
     
 }
 
+// Set Decimal
+function setDeci() {
+    let lenOne = firstNum.length;
+    let lenTwo = secondNum.length;
+    let lenOper = currentOperator.length;
+
+    if (lenOne > 0 && lenOper === 0) {
+        if (firstNum.includes(".")) {
+            return;
+        } else { 
+            firstNum += ".";
+            display.textContent = firstNum;
+        }
+    } else if (lenTwo > 0 && lenOper === 1) {
+        if (secondNum.includes(".")) {
+            return;
+        } else {
+            secondNum += ".";
+            display.textContent = secondNum;
+        }
+    }
+}
+
 // Number Button Functionality
 const number = document.querySelectorAll("#num");
 number.forEach((num) => {
     num.addEventListener("click", () => {
         setNum(num.textContent);
     })
+})
+
+// Decimal Button Functionality
+const decimal = document.querySelector("#dot");
+decimal.addEventListener("click", () => {
+    setDeci();
 })
 
 // Operator Button Functionality
