@@ -1,46 +1,81 @@
 // Calculator Operation Variables
 let firstNum = "";
 let secondNum = "";
-let operator = "";
+let currentOperator = "";
 
 // Operator Functionality
 function add(firstNum, secondNum) {
-    return firstNum + secondNum;
+    display.textContent = firstNum + secondNum;
 }
 
 function subtract(firstNum, secondNum) {
-    return firstNum - secondNum;
+    display.textContent = firstNum - secondNum;
 }
 
 function multiply(firstNum, secondNum) {
-    return firstnum * secondNum;
+    display.textContent = firstNum * secondNum;
 }
 
 function divide(firstNum, secondNum) {
-    return firstNum / secondNum;
+    display.textContent = firstNum / secondNum;
 }
 
 // Operate()
-function operate(firstNum, secondNum, operator) {
-    switch (operator) {
-        case "+":
-            add(firstNum, secondNum);
-        case "-":
-            subtract(firstNum, secondNum);
-        case "*":
-            multiply(firstNum, secondNum);
-        case "/":
-            divide(firstNum, secondNum);
+function operate(firstNum, secondNum, currentOperator) {
+    if (currentOperator === "+") {
+        add(firstNum, secondNum);
+    } else if (currentOperator === "-") {
+        subtract(firstNum, secondNum);
+    } else if (currentOperator === "*") {
+        multiply(firstNum, secondNum);
+    } else if (currentOperator === "/") {
+        divide(firstNum, secondNum);
     }
 };
 
 // Display Functionality
 const display = document.querySelector("#display");
 
+// Set Number
+function setNum(num) {
+    if (currentOperator === "") {
+        firstNum += `${num}`;
+        display.textContent = firstNum;
+        console.log(firstNum);
+    } else {
+        secondNum += `${num}`;
+        display.textContent = secondNum;
+        console.log(secondNum);
+    }
+    
+}
+
+// Set Operator
+
+
 // Number Button Functionality
 const number = document.querySelectorAll("#num");
 number.forEach((num) => {
     num.addEventListener("click", () => {
-        console.log(num.textContent);
+        setNum(num.textContent);
     })
+})
+
+// Operator Button Functionality
+const operator = document.querySelectorAll("#ope");
+operator.forEach((ope) => {
+    ope.addEventListener("click", () =>{
+        currentOperator = ope.textContent;
+        console.log(currentOperator);
+    })
+})
+
+// Equals Button Functionality
+const equals = document.querySelector("#equ");
+equals.addEventListener("click", () => {
+    if (firstNum === "" || secondNum === "" || currentOperator === "") {
+        return;
+    } else {
+        operate(Number(firstNum), Number(secondNum), currentOperator);
+    }
 })
