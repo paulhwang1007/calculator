@@ -1,3 +1,59 @@
 * {
     box-sizing: border-box;
 }
+
+html, 
+body {
+    background-color: #24293E;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-end;
+    height: 100%;
+    width: fit-content;
+}
+
+#display,
+button {
+    font-family: "Helvetica";
+}
+
+#display {
+    font-size: 50px;
+    font-weight: lighter;
+    color: white;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    width: 30vw;
+    height: 50vh;
+}
+
+button {
+    background-color: #4f4f63;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+button.click {
+    background-color: #404152;
+    color: grey;
+}
+
+#clear,
+#num.zero  {
+    grid-column: 1 / 3;
+}

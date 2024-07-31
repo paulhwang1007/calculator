@@ -49,13 +49,10 @@ function setNum(num) {
     if (currentOperator === "") {
         firstNum += `${num}`;
         display.textContent = firstNum;
-        console.log(firstNum);
     } else {
         secondNum += `${num}`;
         display.textContent = secondNum;
-        console.log(secondNum);
     }
-    
 }
 
 // Set Decimal
@@ -87,6 +84,12 @@ number.forEach((num) => {
     num.addEventListener("click", () => {
         setNum(num.textContent);
     })
+    num.addEventListener("mousedown", () => {
+        num.classList.add("click");
+    })
+    num.addEventListener("mouseup", () => {
+        num.classList.remove("click");
+    })
 })
 
 // Decimal Button Functionality
@@ -94,13 +97,24 @@ const decimal = document.querySelector("#dot");
 decimal.addEventListener("click", () => {
     setDeci();
 })
+decimal.addEventListener("mousedown", () => {
+    decimal.classList.add("click");
+})
+decimal.addEventListener("mouseup", () => {
+    decimal.classList.remove("click");
+})
 
 // Operator Button Functionality
 const operator = document.querySelectorAll("#ope");
 operator.forEach((ope) => {
     ope.addEventListener("click", () =>{
         currentOperator = ope.textContent;
-        console.log(currentOperator);
+    })
+    ope.addEventListener("mousedown", () => {
+        ope.classList.add("click");
+    })
+    ope.addEventListener("mouseup", () => {
+        ope.classList.remove("click");
     })
 })
 
@@ -113,6 +127,12 @@ equals.addEventListener("click", () => {
         operate(Number(firstNum), Number(secondNum), currentOperator);
     }
 })
+equals.addEventListener("mousedown", () => {
+    equals.classList.add("click");
+})
+equals.addEventListener("mouseup", () => {
+    equals.classList.remove("click");
+})
 
 // Clear Button Functionality
 const clear = document.querySelector("#clear");
@@ -121,6 +141,12 @@ clear.addEventListener("click", () => {
     secondNum = "";
     currentOperator = "";
     display.textContent = "0";
+})
+clear.addEventListener("mousedown", () => {
+    clear.classList.add("click");
+})
+clear.addEventListener("mouseup", () => {
+    clear.classList.remove("click");
 })
 
 // Delete (Backspace) Button Functionality
@@ -138,10 +164,16 @@ del.addEventListener("click", () => {
         secondNum = secondNum.slice(0, lenTwo - 1);
         display.textContent = secondNum;
     } else if (lenOne === 1) {
-        firstNum = "0";
+        firstNum = "";
         display.textContent = "0";
     } else if (lenTwo === 1) {
-        secondNum = "0";
+        secondNum = "";
         display.textContent = "0";
     }
+})
+del.addEventListener("mousedown", () => {
+    del.classList.add("click");
+})
+del.addEventListener("mouseup", () => {
+    del.classList.remove("click");
 })
