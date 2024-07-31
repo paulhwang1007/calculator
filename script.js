@@ -63,7 +63,7 @@ function setDeci() {
     let lenOne = firstNum.length;
     let lenTwo = secondNum.length;
     let lenOper = currentOperator.length;
-
+    
     if (lenOne > 0 && lenOper === 0) {
         if (firstNum.includes(".")) {
             return;
@@ -121,4 +121,27 @@ clear.addEventListener("click", () => {
     secondNum = "";
     currentOperator = "";
     display.textContent = "0";
+})
+
+// Delete (Backspace) Button Functionality
+const del = document.querySelector("#del");
+del.addEventListener("click", () => {
+    let lenOne = firstNum.length;
+    let lenTwo = secondNum.length;
+    let lenOper = currentOperator.length;
+
+    if (lenOne > 1 && lenOper === 0) {
+        firstNum = firstNum.slice(0, lenOne - 1);
+        display.textContent = firstNum;
+        console.log(firstNum);
+    } else if (lenOper === 1 && lenTwo > 1) {
+        secondNum = secondNum.slice(0, lenTwo - 1);
+        display.textContent = secondNum;
+    } else if (lenOne === 1) {
+        firstNum = "0";
+        display.textContent = "0";
+    } else if (lenTwo === 1) {
+        secondNum = "0";
+        display.textContent = "0";
+    }
 })
