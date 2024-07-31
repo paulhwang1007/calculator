@@ -2,23 +2,32 @@
     box-sizing: border-box;
 }
 
-html, 
+/* div.header {
+    font-size: 24px;
+    color: white;
+} */
+
 body {
-    background-color: #24293E;
-    height: 100%;
+    background-color: #0b0b0b;
+    height: 100vh;
 }
 
 .container {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-end;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
     align-items: flex-end;
-    height: 100%;
+    height: 75%;
     width: fit-content;
+    padding: 8px;
+    border: 5px solid #2d2d2d;
+    border-radius: 5px;
 }
 
+div.header,
 #display,
 button {
     font-family: "Helvetica";
@@ -35,12 +44,12 @@ button {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 8px;
-    width: 30vw;
+    width: 25vw;
     height: 50vh;
 }
 
 button {
-    background-color: #4f4f63;
+    background-color: #2d2d2d;
     color: white;
     border: 0;
     border-radius: 5px;
@@ -50,7 +59,16 @@ button {
 
 button.click {
     background-color: #404152;
-    color: grey;
+}
+
+button#ope,
+button#equ {
+    color: #925ff0;
+}
+
+button#clear,
+button#del {
+    color: #a3fda1;
 }
 
 #clear,

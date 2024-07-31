@@ -84,12 +84,6 @@ number.forEach((num) => {
     num.addEventListener("click", () => {
         setNum(num.textContent);
     })
-    num.addEventListener("mousedown", () => {
-        num.classList.add("click");
-    })
-    num.addEventListener("mouseup", () => {
-        num.classList.remove("click");
-    })
 })
 
 // Decimal Button Functionality
@@ -97,24 +91,12 @@ const decimal = document.querySelector("#dot");
 decimal.addEventListener("click", () => {
     setDeci();
 })
-decimal.addEventListener("mousedown", () => {
-    decimal.classList.add("click");
-})
-decimal.addEventListener("mouseup", () => {
-    decimal.classList.remove("click");
-})
 
 // Operator Button Functionality
 const operator = document.querySelectorAll("#ope");
 operator.forEach((ope) => {
     ope.addEventListener("click", () =>{
         currentOperator = ope.textContent;
-    })
-    ope.addEventListener("mousedown", () => {
-        ope.classList.add("click");
-    })
-    ope.addEventListener("mouseup", () => {
-        ope.classList.remove("click");
     })
 })
 
@@ -127,12 +109,6 @@ equals.addEventListener("click", () => {
         operate(Number(firstNum), Number(secondNum), currentOperator);
     }
 })
-equals.addEventListener("mousedown", () => {
-    equals.classList.add("click");
-})
-equals.addEventListener("mouseup", () => {
-    equals.classList.remove("click");
-})
 
 // Clear Button Functionality
 const clear = document.querySelector("#clear");
@@ -141,12 +117,6 @@ clear.addEventListener("click", () => {
     secondNum = "";
     currentOperator = "";
     display.textContent = "0";
-})
-clear.addEventListener("mousedown", () => {
-    clear.classList.add("click");
-})
-clear.addEventListener("mouseup", () => {
-    clear.classList.remove("click");
 })
 
 // Delete (Backspace) Button Functionality
@@ -171,9 +141,14 @@ del.addEventListener("click", () => {
         display.textContent = "0";
     }
 })
-del.addEventListener("mousedown", () => {
-    del.classList.add("click");
-})
-del.addEventListener("mouseup", () => {
-    del.classList.remove("click");
+
+// Button Click Response
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("mousedown", () => {
+        button.classList.add("click");
+    })
+    button.addEventListener("mouseup", () => {
+        button.classList.remove("click");
+    })
 })
